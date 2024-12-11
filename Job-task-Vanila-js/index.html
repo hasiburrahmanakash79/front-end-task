@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,28 +8,29 @@
   <title>Product Page</title>
   <link href="styles.css" rel="stylesheet">
   <script defer src="app.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
   <div class="container">
     <!-- Product Details -->
-    <div class="product-details">
+    <div class="product-details border shadow-lg rounded-xl">
       <div class="image-section">
-        <img id="product-thumbnail" src="images/purple-watch.png" alt="Watch" class="main-image">
+        <img id="product-thumbnail" src="images/purple-watch.jpeg" alt="Watch" class="main-image">
       </div>
       <div class="info-section">
         <h1 class="product-name">Classy Modern Smart Watch</h1>
         <p class="product-price">$79.00</p>
         <p class="product-reviews">(2 Reviews)</p>
-        <p class="product-description">
-          I must explain to you how all this mistaken idea of denouncing pleasure was born...
+        <p class="product-description w-2/3">
+          I must explain to you how all this mistaken idea of denoun cing ple praising pain was born and I will give you a complete account of the system, and expound the actual teaching.
         </p>
         <div class="product-options">
           <div>
             <h4>Band Color</h4>
             <div class="colors">
-              <button class="color-btn active" data-color="purple" style="background: purple;"></button>
+              <button class="color-btn active" data-color="purple" style="background: rgb(190, 1, 190);"></button>
               <button class="color-btn" data-color="black" style="background: black;"></button>
-              <button class="color-btn" data-color="blue" style="background: blue;"></button>
+              <button class="color-btn" data-color="blue" style="background: rgb(57, 57, 255);"></button>
               <button class="color-btn" data-color="cyan" style="background: cyan;"></button>
             </div>
           </div>
@@ -42,9 +45,9 @@
           </div>
         </div>
         <div class="quantity-control">
-          <button id="decrease-quantity">-</button>
-          <span id="quantity">1</span>
-          <button id="increase-quantity">+</button>
+          <button id="decrease-quantity" class="quantity-control-btn">-</button>
+          <span id="quantity" class="pr-3">1</span>
+          <button id="increase-quantity" class="quantity-control-btn">+</button>
         </div>
         <button id="add-to-cart" class="add-to-cart">Add to Cart</button>
       </div>
@@ -56,7 +59,7 @@
     </button>
 
     <!-- Cart Modal -->
-    <div id="cart-modal" class="modal hidden">
+    <!-- <div id="cart-modal" class="modal hidden">
       <div class="modal-content">
         <h2>Your Cart</h2>
         <table class="cart-table">
@@ -79,7 +82,33 @@
           <button id="checkout" class="checkout">Checkout</button>
         </div>
       </div>
+    </div> -->
+    <div id="cart-modal" class="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center hidden">
+      <div class="bg-white p-6 rounded-lg w-11/12 max-w-2xl">
+        <h2 class="text-xl font-bold">Your Cart</h2>
+        <table class="w-full mt-4 border-collapse border border-gray-300">
+          <thead>
+            <tr class="bg-gray-100">
+              <th class="p-2">Items</th>
+              <th class=""></th>
+              <th class="p-2">Color</th>
+              <th class="p-2">Size</th>
+              <th class="p-2">Qty</th>
+              <th class="p-2">Price</th>
+              <th class="p-2">Total</th>
+              <th class="p-2">Action</th>
+            </tr>
+          </thead>
+          <tbody id="cart-table-body"></tbody>
+        </table>
+        <div class="flex justify-between mt-4">
+          <button id="continue-shopping" class="text-blue-500">Continue Shopping</button>
+          <button id="checkout" class="px-6 py-3 bg-green-500 text-white font-bold rounded shadow hover:bg-green-600">Checkout</button>
+        </div>
+      </div>
     </div>
   </div>
 </body>
 </html>
+
+

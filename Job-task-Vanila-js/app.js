@@ -4,29 +4,29 @@ document.addEventListener('DOMContentLoaded', () => {
         name: "Classy Modern Smart Watch",
         price: 79.00,
         reviews: "(2 Reviews)",
-        description: "I must explain to you how all this mistaken idea of denouncing pleasure was born...",
-        image: "images/purple-watch.png"
+        description: "I must explain to you how all this mistaken idea of denoun cing ple praising pain was born and I will give you a complete account of the system, and expound the actual teaching.",
+        image: "images/purple-watch.jpeg"
       },
       black: {
         name: "Elegant Black Watch",
         price: 99.00,
         reviews: "(4 Reviews)",
-        description: "The ultimate black watch with a premium strap and advanced features.",
-        image: "images/black-watch.png"
+        description: "I must explain to you how all this mistaken idea of denoun cing ple praising pain was born and I will give you a complete account of the system, and expound the actual teaching.",
+        image: "images/black-watch.jpeg"
       },
       blue: {
         name: "Ocean Blue Smart Watch",
         price: 89.00,
         reviews: "(3 Reviews)",
-        description: "Designed for versatility, comfort, and an ocean-inspired look.",
-        image: "images/blue-watch.png"
+        description: "I must explain to you how all this mistaken idea of denoun cing ple praising pain was born and I will give you a complete account of the system, and expound the actual teaching.",
+        image: "images/blue-watch.jpeg"
       },
       cyan: {
         name: "Cyan Premium Fitness Band",
         price: 69.00,
         reviews: "(5 Reviews)",
-        description: "Stylish cyan band for fitness enthusiasts, designed for all-day comfort.",
-        image: "images/cyan-watch.png"
+        description: "I must explain to you how all this mistaken idea of denoun cing ple praising pain was born and I will give you a complete account of the system, and expound the actual teaching.",
+        image: "images/cyan-watch.jpeg"
       }
     };
   
@@ -118,7 +118,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <td>$${item.price.toFixed(2)}</td>
             <td>$${item.total.toFixed(2)}</td>
             <td>
-              <button data-index="${index}" class="remove-item text-red-500">Remove</button>
+              <button data-index="${index}" class="remove-item text-red-500 border-l px-2">Remove</button>
             </td>
           </tr>
         `)

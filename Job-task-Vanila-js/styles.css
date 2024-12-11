@@ -52,7 +52,7 @@ body {
   }
   
   .colors .color-btn.active {
-    border-color: #02fb49;
+    border-color: #4caf50;
   }
   
   .sizes .size-btn {
@@ -64,6 +64,14 @@ body {
   
   .sizes .size-btn.active {
     border-color: #4caf50;
+    border: 3px solid #4caf50;
+  }
+
+  .quantity-control-btn {
+    border: 1px solid #ccc;
+    padding: 5px 10px;
+    margin-right: 10px;
+    cursor: pointer;
   }
   
   .quantity-control {
@@ -71,11 +79,13 @@ body {
   }
   
   .add-to-cart {
-    background-color: #4caf50;
+    margin-top: 10px;
+    background-color: #8f34ff;
     color: white;
     padding: 10px 20px;
     border: none;
     cursor: pointer;
+    border-radius: 5px;
   }
   
   .checkout-button {
@@ -87,6 +97,7 @@ body {
     padding: 10px 20px;
     border: none;
     cursor: pointer;
+    border-radius: 5px;
   }
   
   .checkout-button.hidden {
@@ -133,8 +144,7 @@ body {
   }
   
   .continue-shopping {
-    background-color: transparent;
-    border: none;
+    border: 2px solid #8e8e8e;
     color: #007bff;
     cursor: pointer;
   }
