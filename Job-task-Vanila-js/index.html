@@ -1,114 +1,142 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Product Page</title>
-  <link href="styles.css" rel="stylesheet">
-  <script defer src="app.js"></script>
-  <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body>
-  <div class="container">
-    <!-- Product Details -->
-    <div class="product-details border shadow-lg rounded-xl">
-      <div class="image-section">
-        <img id="product-thumbnail" src="images/purple-watch.jpeg" alt="Watch" class="main-image">
-      </div>
-      <div class="info-section">
-        <h1 class="product-name">Classy Modern Smart Watch</h1>
-        <p class="product-price">$79.00</p>
-        <p class="product-reviews">(2 Reviews)</p>
-        <p class="product-description w-2/3">
-          I must explain to you how all this mistaken idea of denoun cing ple praising pain was born and I will give you a complete account of the system, and expound the actual teaching.
-        </p>
-        <div class="product-options">
-          <div>
-            <h4>Band Color</h4>
-            <div class="colors">
-              <button class="color-btn active" data-color="purple" style="background: rgb(190, 1, 190);"></button>
-              <button class="color-btn" data-color="black" style="background: black;"></button>
-              <button class="color-btn" data-color="blue" style="background: rgb(57, 57, 255);"></button>
-              <button class="color-btn" data-color="cyan" style="background: cyan;"></button>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product Page</title>
+    <link href="styles.css" rel="stylesheet" />
+    <script defer src="app.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <div class="container">
+      <!-- Product Details -->
+      <div class="product-details border shadow-lg rounded-xl">
+        <div class="image-section">
+          <img
+            id="product-thumbnail"
+            src="images/purple-watch.jpeg"
+            alt="Watch"
+            class="main-image"
+          />
+        </div>
+        <div class="info-section">
+          <h1 class="product-name">Classy Modern Smart Watch</h1>
+          <p class="product-price">$79.00</p>
+          <p class="product-reviews">(2 Reviews)</p>
+          <p class="product-description w-2/3">
+            I must explain to you how all this mistaken idea of denoun cing ple
+            praising pain was born and I will give you a complete account of the
+            system, and expound the actual teaching.
+          </p>
+          <div class="product-options">
+            <div>
+              <h4>Band Color</h4>
+              <div class="colors">
+                <button
+                  class="color-btn active"
+                  data-color="purple"
+                  style="background: rgb(190, 1, 190)"
+                ></button>
+                <button
+                  class="color-btn"
+                  data-color="black"
+                  style="background: black"
+                ></button>
+                <button
+                  class="color-btn"
+                  data-color="blue"
+                  style="background: rgb(57, 57, 255)"
+                ></button>
+                <button
+                  class="color-btn"
+                  data-color="cyan"
+                  style="background: cyan"
+                ></button>
+              </div>
+            </div>
+            <div>
+              <h4>Wrist Size</h4>
+              <div class="sizes">
+                <button class="size-btn">S</button>
+                <button class="size-btn active">M</button>
+                <button class="size-btn">L</button>
+                <button class="size-btn">XL</button>
+              </div>
             </div>
           </div>
-          <div>
-            <h4>Wrist Size</h4>
-            <div class="sizes">
-              <button class="size-btn">S</button>
-              <button class="size-btn active">M</button>
-              <button class="size-btn">L</button>
-              <button class="size-btn">XL</button>
-            </div>
+          <div class="quantity-control">
+            <button id="decrease-quantity" class="quantity-control-btn">
+              -
+            </button>
+            <span id="quantity" class="pr-3">1</span>
+            <button id="increase-quantity" class="quantity-control-btn">
+              +
+            </button>
+          </div>
+          <button id="add-to-cart" class="add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Floating Checkout Button -->
+      <button id="checkout-button" class="checkout-button hidden">
+        Checkout <span id="cart-count">0</span>
+      </button>
+
+      <!-- Updated Cart Modal -->
+      <div
+        id="cart-modal"
+        class="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center hidden"
+      >
+        <div class="bg-white p-6 rounded-lg w-11/12 max-w-2xl">
+          <!-- Modal Header -->
+          <h2 class="text-2xl font-bold mb-4 text-gray-700">Your Cart</h2>
+
+          <!-- Cart Items -->
+          <table
+            class="w-full border-collapse border border-gray-200 text-left"
+          >
+            <thead>
+              <tr class="bg-gray-100 text-gray-600">
+                <th class="py-2 px-4">Item</th>
+                <th class="py-2 px-4">Color</th>
+                <th class="py-2 px-4">Size</th>
+                <th class="py-2 px-4">Qty</th>
+                <th class="py-2 px-4">Price</th>
+              </tr>
+            </thead>
+            <tbody id="cart-table-body">
+              <!-- Dynamic Content -->
+            </tbody>
+          </table>
+
+          <!-- Total Section -->
+          <div class="mt-4 flex justify-between items-center px-5">
+            <span class="text-lg font-semibold text-gray-700">Total:</span>
+            <span
+              id="cart-total"
+              class="text-lg font-semibold text-gray-900 mr-3"
+              >$0.00</span
+            >
+          </div>
+
+          <!-- Modal Footer -->
+          <div class="mt-6 flex justify-end gap-4">
+            <button
+              id="continue-shopping"
+              class="text-blue-600 border border-blue-600 px-4 py-2 rounded-md hover:bg-blue-50"
+            >
+              Continue Shopping
+            </button>
+            <button
+              id="checkout"
+              class="bg-blue-600 text-white px-6 py-3 rounded-md hover:bg-blue-700"
+            >
+              Checkout
+            </button>
           </div>
         </div>
-        <div class="quantity-control">
-          <button id="decrease-quantity" class="quantity-control-btn">-</button>
-          <span id="quantity" class="pr-3">1</span>
-          <button id="increase-quantity" class="quantity-control-btn">+</button>
-        </div>
-        <button id="add-to-cart" class="add-to-cart">Add to Cart</button>
       </div>
     </div>
-
-    <!-- Floating Checkout Button -->
-    <button id="checkout-button" class="checkout-button hidden">
-      Checkout <span id="cart-count">0</span>
-    </button>
-
-    <!-- Cart Modal -->
-    <!-- <div id="cart-modal" class="modal hidden">
-      <div class="modal-content">
-        <h2>Your Cart</h2>
-        <table class="cart-table">
-          <thead>
-            <tr>
-              <th>Image</th>
-              <th>Name</th>
-              <th>Color</th>
-              <th>Size</th>
-              <th>Qty</th>
-              <th>Price</th>
-              <th>Total</th>
-              <th>Action</th>
-            </tr>
-          </thead>
-          <tbody id="cart-table-body"></tbody>
-        </table>
-        <div class="modal-footer">
-          <button id="continue-shopping" class="continue-shopping">Continue Shopping</button>
-          <button id="checkout" class="checkout">Checkout</button>
-        </div>
-      </div>
-    </div> -->
-    <div id="cart-modal" class="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center hidden">
-      <div class="bg-white p-6 rounded-lg w-11/12 max-w-2xl">
-        <h2 class="text-xl font-bold">Your Cart</h2>
-        <table class="w-full mt-4 border-collapse border border-gray-300">
-          <thead>
-            <tr class="bg-gray-100">
-              <th class="p-2">Items</th>
-              <th class=""></th>
-              <th class="p-2">Color</th>
-              <th class="p-2">Size</th>
-              <th class="p-2">Qty</th>
-              <th class="p-2">Price</th>
-              <th class="p-2">Total</th>
-              <th class="p-2">Action</th>
-            </tr>
-          </thead>
-          <tbody id="cart-table-body"></tbody>
-        </table>
-        <div class="flex justify-between mt-4">
-          <button id="continue-shopping" class="text-blue-500">Continue Shopping</button>
-          <button id="checkout" class="px-6 py-3 bg-green-500 text-white font-bold rounded shadow hover:bg-green-600">Checkout</button>
-        </div>
-      </div>
-    </div>
-  </div>
-</body>
+  </body>
 </html>
-
-

@@ -65,7 +65,6 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
   
-    // Highlight selected size
     sizeButtons.forEach(button => {
       button.addEventListener('click', () => {
         sizeButtons.forEach(btn => btn.classList.remove('active'));
@@ -73,7 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
   
-    // Update quantity
+    
     document.getElementById('increase-quantity').addEventListener('click', () => {
       quantity++;
       quantityElement.textContent = quantity;
@@ -105,25 +104,44 @@ document.addEventListener('DOMContentLoaded', () => {
       renderCart();
     });
   
-    // Render cart table
+
     function renderCart() {
+      const total = cart.reduce((sum, item) => sum + item.total, 0); 
+      const cartTotalElement = document.getElementById('cart-total');
+    
       cartTableBody.innerHTML = cart
-        .map((item, index) => `
+        .map(item => `
           <tr>
-            <td><img src="${item.image}" alt="${item.name}" class="w-12 h-12 rounded"></td>
-            <td>${item.name}</td>
-            <td>${item.color}</td>
-            <td>${item.size}</td>
-            <td>${item.quantity}</td>
-            <td>$${item.price.toFixed(2)}</td>
-            <td>$${item.total.toFixed(2)}</td>
-            <td>
-              <button data-index="${index}" class="remove-item text-red-500 border-l px-2">Remove</button>
-            </td>
+            <td class="py-2 px-4">${item.name}</td>
+            <td class="py-2 px-4">${item.color}</td>
+            <td class="py-2 px-4">${item.size}</td>
+            <td class="py-2 px-4">${item.quantity}</td>
+            <td class="py-2 px-4">$${item.total.toFixed(2)}</td>
           </tr>
         `)
         .join('');
+    
+      cartTotalElement.textContent = `$${total.toFixed(2)}`;
     }
+    // Render cart table
+    // function renderCart() {
+    //   cartTableBody.innerHTML = cart
+    //     .map((item, index) => `
+    //       <tr>
+    //         <td><img src="${item.image}" alt="${item.name}" class="w-12 h-12 rounded"></td>
+    //         <td>${item.name}</td>
+    //         <td>${item.color}</td>
+    //         <td>${item.size}</td>
+    //         <td>${item.quantity}</td>
+    //         <td>$${item.price.toFixed(2)}</td>
+    //         <td>$${item.total.toFixed(2)}</td>
+    //         <td>
+    //           <button data-index="${index}" class="remove-item text-red-500 border-l px-2">Remove</button>
+    //         </td>
+    //       </tr>
+    //     `)
+    //     .join('');
+    // }
   
     // Open and close modal
     checkoutButton.addEventListener('click', () => cartModal.classList.remove('hidden'));
