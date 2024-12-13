@@ -123,25 +123,6 @@ document.addEventListener('DOMContentLoaded', () => {
     
       cartTotalElement.textContent = `$${total.toFixed(2)}`;
     }
-    // Render cart table
-    // function renderCart() {
-    //   cartTableBody.innerHTML = cart
-    //     .map((item, index) => `
-    //       <tr>
-    //         <td><img src="${item.image}" alt="${item.name}" class="w-12 h-12 rounded"></td>
-    //         <td>${item.name}</td>
-    //         <td>${item.color}</td>
-    //         <td>${item.size}</td>
-    //         <td>${item.quantity}</td>
-    //         <td>$${item.price.toFixed(2)}</td>
-    //         <td>$${item.total.toFixed(2)}</td>
-    //         <td>
-    //           <button data-index="${index}" class="remove-item text-red-500 border-l px-2">Remove</button>
-    //         </td>
-    //       </tr>
-    //     `)
-    //     .join('');
-    // }
   
     // Open and close modal
     checkoutButton.addEventListener('click', () => cartModal.classList.remove('hidden'));
