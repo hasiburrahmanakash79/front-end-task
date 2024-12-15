@@ -14,11 +14,7 @@ Both versions are fully functional, and the React version is hosted on **Vercel*
 
 - React Version: [https://front-end-task-opal.vercel.app/](https://front-end-task-opal.vercel.app/)
 
----
 
-## How to Use
 
-### HTML Version
-1. Clone the repository:
-   ```bash
-   git clone <repository-link>
+
+
